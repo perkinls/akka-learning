@@ -3,7 +3,8 @@ package com.lp.akka.notes
 import akka.actor.Actor
 import akka.pattern.ask
 import akka.util.Timeout
-import com.akkademy.messages.{SetRequest, GetRequest}
+import com.lp.akka.notes.messages.{GetRequest, SetRequest}
+import com.lp.akka.notes.pojo.{ArticleBody, HttpResponse, ParseArticle, ParseHtmlArticle}
 
 import scala.concurrent.Future
 

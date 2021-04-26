@@ -1,6 +1,7 @@
 package com.lp.akka.notes
 
 import akka.actor.Actor
+import com.lp.akka.notes.pojo.{ArticleBody, ParseHtmlArticle}
 
 class ParsingActor extends Actor{
   override def receive: Receive = {

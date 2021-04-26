@@ -1,3 +1,5 @@
+import sbt.Keys.libraryDependencies
+
 //工程通用配置
 lazy val commonSettings = Seq(
   organization := "com.lp.akka.notes",
@@ -7,10 +9,11 @@ lazy val commonSettings = Seq(
 lazy val dependencies =
   libraryDependencies ++= Seq(
     "com.typesafe.akka" %% "akka-actor" % "2.3.6",
+    "com.typesafe.akka" %% "akka-remote" % "2.3.6",
+    "org.scala-lang.modules" %% "scala-java8-compat" % "0.3.0",
+    "junit" % "junit" % "4.12" % "test",
     "com.typesafe.akka" %% "akka-testkit" % "2.3.6" % "test",
     "com.novocode" % "junit-interface" % "0.11" % "test",
-    "org.scala-lang.modules" %% "scala-java8-compat" % "0.3.0",
-    "junit" % "junit" % "4.11" % "test",
     "org.scalatest" %% "scalatest" % "2.2.4" % "test"
   )
 
@@ -19,13 +22,13 @@ lazy val dependencies =
 
 lazy val root = (project in file("."))
   .settings(commonSettings, name := "akka-learning")
-  .aggregate(chapter01, chapter02, chapter03,chapter04,chapter05,chapter06)
+  .aggregate(chapter01, chapter02, chapter03, chapter04, chapter05, chapter06)
 
 
 //第一章节
 lazy val chapter01 = (project in file("chapter01"))
   .settings(commonSettings, name := "chapter01")
-  .aggregate(chapter01_akkademy_db_java)
+  .aggregate(chapter01_akkademy_db_java, chapter01_akkademy_db_scala)
 
 lazy val chapter01_akkademy_db_java = (project in file("chapter01/akkademy-db-java"))
   .settings(
@@ -66,7 +69,7 @@ lazy val chapter02_akkademy_db_java_2 = (project in file("chapter02/akkademy-db-
     commonSettings,
     name := "akkademy-db-java-2",
     dependencies,
-    mappings in(Compile, packageBin) ~= {
+    mappings in(Compile, packageBin) ~= { //发布的内容中排除 application.conf，防止客户端也能够试图启动远程服务器。
       _.filterNot { case (_, name) => Seq("application.conf").contains(name) }
     },
     mainClass in(Compile, run) := Some("com.lp.akka.notes.Main")
@@ -115,10 +118,13 @@ lazy val chapter03_akkademaid_scala = (project in file("chapter03/akkademaid-sca
   .settings(
     commonSettings,
     name := "akkademaid-scala",
-    dependencies
+    libraryDependencies ++= Seq(
+      "com.syncthemall" % "boilerpipe" % "1.2.2", // 文本解析工具
+      "com.lp.akka.notes" %% "akkademy-db-scala-2" % "0.0.1-SNAPSHOT"
+    )
   )
 
-//第三章
+//第四章
 lazy val chapter04 = (project in file("chapter04"))
   .settings(commonSettings, name := "chapter04")
   .aggregate(akkademy_db_client_java_4, akkademy_db_client_scala_4, akkademy_db_java_4, akkademy_db_scala_4, function_examples_4)
@@ -127,13 +133,19 @@ lazy val akkademy_db_client_java_4 = (project in file("chapter04/akkademy-db-cli
   .settings(
     commonSettings,
     name := "akkademy-db-client-java-4",
-    dependencies
+    dependencies,
+    libraryDependencies ++= Seq(
+      "com.lp.akka.notes" %% "akkademy-db-java-4" % "0.0.1-SNAPSHOT"
+    )
   )
 lazy val akkademy_db_client_scala_4 = (project in file("chapter04/akkademy-db-client-scala-4"))
   .settings(
     commonSettings,
     name := "akkademy-db-client-scala-4",
-    dependencies
+    dependencies,
+    libraryDependencies ++= Seq(
+      "com.lp.akka.notes" %% "akkademy-db-scala-4" % "0.0.1-SNAPSHOT"
+    )
   )
 lazy val akkademy_db_java_4 = (project in file("chapter04/akkademy-db-java-4"))
   .settings(
@@ -145,7 +157,12 @@ lazy val akkademy_db_scala_4 = (project in file("chapter04/akkademy-db-scala-4")
   .settings(
     commonSettings,
     name := "akkademy-db-scala-4",
-    dependencies
+    dependencies,
+    libraryDependencies ++= Seq(
+      "com.typesafe.akka" %% "akka-agent" % "2.3.6",
+      "com.lp.akka.notes" %% "akkademy-db-java-2" % "0.0.1-SNAPSHOT",
+      "org.scalatest" %% "scalatest" % "2.1.6" % "test"
+    )
   )
 lazy val function_examples_4 = (project in file("chapter04/function-examples-4"))
   .settings(
@@ -186,7 +203,7 @@ lazy val akkademaid_scala_5 = (project in file("chapter05/akkademaid-scala-5"))
 //第六章节
 lazy val chapter06 = (project in file("chapter06"))
   .settings(commonSettings, name := "chapter06")
-  .aggregate(aakkademaid_client_java_6,aakkademaid_client_scala_6)
+  .aggregate(aakkademaid_client_java_6, aakkademaid_client_scala_6)
 
 lazy val aakkademaid_client_java_6 = (project in file("chapter06/aakkademaid-client-java-6"))
   .settings(
@@ -233,7 +250,7 @@ lazy val aakkademaid_scala_6 = (project in file("chapter06/aakkademaid-scala-6")
 //第七章节
 lazy val chapter07 = (project in file("chapter07"))
   .settings(commonSettings, name := "chapter07")
-  .aggregate(mailbox_demo_java,mailbox_demo_scala)
+  .aggregate(mailbox_demo_java, mailbox_demo_scala)
 
 lazy val mailbox_demo_java = (project in file("chapter07/mailbox-demo-java"))
   .settings(

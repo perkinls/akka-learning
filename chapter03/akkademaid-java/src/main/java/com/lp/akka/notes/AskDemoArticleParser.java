@@ -6,6 +6,10 @@ import akka.actor.ActorSelection;
 import akka.japi.pf.ReceiveBuilder;
 import akka.util.Timeout;
 import com.lp.akka.notes.messages.GetRequest;
+import com.lp.akka.notes.pojo.ArticleBody;
+import com.lp.akka.notes.pojo.HttpResponse;
+import com.lp.akka.notes.pojo.ParseArticle;
+import com.lp.akka.notes.pojo.ParseHtmlArticle;
 import scala.PartialFunction;
 
 import java.util.concurrent.CompletableFuture;
@@ -64,7 +68,13 @@ public class AskDemoArticleParser extends AbstractActor {
                                 );
                     }).thenCompose(x -> x);
 
+                    /*
+                     * 创建了一个本地的 ActorRef 变量，用于存储 sender() 方法的结果。这一点很重要：创建这个变量是必须的
+                     * 由于匿名函数是在一个不同的线程中执行的，有着不同的执行上下文，因此在匿名函数中的代码块里调用 sender()方法时，返回值是不可预知的。
+                     * 为了访问正确的 ActorRef，就必须在主线程中调用 sender()， 然后将结果引用存储在一个变量中。 执行匿名函数时， 这个变量会被正确地传递至匿名函数的闭包中。
+                     */
                     final ActorRef senderRef = sender();
+
                     result.handle((x,t) -> {
                         if(x != null){
                             if(x instanceof ArticleBody){

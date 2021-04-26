@@ -5,6 +5,10 @@ import akka.japi.pf.ReceiveBuilder;
 import akka.util.Timeout;
 import com.lp.akka.notes.messages.GetRequest;
 import com.lp.akka.notes.messages.SetRequest;
+import com.lp.akka.notes.pojo.ArticleBody;
+import com.lp.akka.notes.pojo.HttpResponse;
+import com.lp.akka.notes.pojo.ParseArticle;
+import com.lp.akka.notes.pojo.ParseHtmlArticle;
 import scala.PartialFunction;
 
 import java.util.concurrent.TimeoutException;

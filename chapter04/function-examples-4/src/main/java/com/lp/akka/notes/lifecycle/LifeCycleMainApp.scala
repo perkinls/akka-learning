@@ -29,6 +29,6 @@ object LifeCycleMainApp extends App {
 //  child2 ! "exception"
   Thread.sleep(5000) // 等待 child2  被杀死
   pActor ! ("newChild", "child-2")
-//  Thread.sleep(5000)
-//  pActor ! ("newChild", "child-2")
+  Thread.sleep(5000)
+  pActor ! ("newChild", "child-2")
 }

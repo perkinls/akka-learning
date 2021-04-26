@@ -5,6 +5,8 @@ import java.util.concurrent.TimeoutException
 import akka.actor.Status.Failure
 import akka.actor.{Actor, ActorRef, Props}
 import akka.util.Timeout
+import com.lp.akka.notes.messages.{GetRequest, SetRequest}
+import com.lp.akka.notes.pojo.{ArticleBody, HttpResponse, ParseArticle, ParseHtmlArticle}
 
 class TellDemoArticleParser(cacheActorPath: String,
                             httpClientActorPath: String,

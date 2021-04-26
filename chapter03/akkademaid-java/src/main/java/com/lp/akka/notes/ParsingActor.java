@@ -3,6 +3,8 @@ package com.lp.akka.notes;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
+import com.lp.akka.notes.pojo.ArticleBody;
+import com.lp.akka.notes.pojo.ParseHtmlArticle;
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
 import scala.PartialFunction;
 
