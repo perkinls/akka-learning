@@ -1,5 +1,6 @@
 package com.lp.akka.notes;
 
+import akka.dispatch.Dispatcher;
 import com.jasongoodwin.monads.Try;
 
 /**

@@ -1,4 +1,4 @@
-package com.lp.akka.notes;
+package com.akkademy;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;

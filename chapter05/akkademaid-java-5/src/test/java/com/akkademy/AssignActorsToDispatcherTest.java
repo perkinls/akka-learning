@@ -1,9 +1,11 @@
-package com.lp.akka.notes;
+package com.akkademy;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.routing.RoundRobinGroup;
+import com.lp.akka.notes.ArticleParseActor;
+import com.lp.akka.notes.ParseArticle;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -16,7 +18,6 @@ public class AssignActorsToDispatcherTest {
     ActorSystem system = ActorSystem.create();
     @Test
     public void shouldReadFilesWithActorsInAnotherDispatcher() throws Exception {
-
 
         List<ActorRef> routees = Arrays.asList(1,2,3,4,5,6,7,8).stream().map(x ->
                 system.actorOf(Props.create(ArticleParseActor.class).
