@@ -1,4 +1,4 @@
-package com.akkademy;
+package com.lp.akka.notes;
 
 import com.jasongoodwin.monads.Futures;
 import com.lp.akka.notes.ArticleParser;

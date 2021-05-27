@@ -13,7 +13,9 @@ import java.util.List;
 /**
  * @author li.pan
  * @version 1.0.0
- * @Description Actor Pool 的方式来创建 Router
+ * @Description 的方式来创建 Router
+ *
+ * Router 中 routee大致可以理解为Actor的并行版本,纵向增强 多线程！！！！
  * @createTime 2021年01月14日 20:32:00
  */
 public class CreateRouter extends AbstractActor {

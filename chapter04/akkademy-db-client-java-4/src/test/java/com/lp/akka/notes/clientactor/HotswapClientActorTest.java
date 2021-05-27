@@ -1,4 +1,4 @@
-package com.akkademy.clientactor;
+package com.lp.akka.notes.clientactor;
 
 import akka.actor.ActorSystem;
 import akka.actor.Props;

@@ -6,6 +6,9 @@ import akka.japi.Creator;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
+/**
+ * @author lipan
+ */
 public class PongActor extends UntypedActor {
     LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 

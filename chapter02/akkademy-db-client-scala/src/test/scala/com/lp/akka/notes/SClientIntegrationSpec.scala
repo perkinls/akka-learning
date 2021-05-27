@@ -1,4 +1,4 @@
-package com.akkademy
+package com.lp.akka.notes
 
 import com.lp.akka.notes.SClient
 import org.scalatest.{FunSpecLike, Matchers}

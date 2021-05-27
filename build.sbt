@@ -160,7 +160,7 @@ lazy val akkademy_db_scala_4 = (project in file("chapter04/akkademy-db-scala-4")
     dependencies,
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-agent" % "2.3.6",
-      "com.lp.akka.notes" %% "akkademy-db-java-2" % "0.0.1-SNAPSHOT",
+//      "com.lp.akka.notes" %% "akkademy-db-java-2" % "0.0.1-SNAPSHOT",
       "org.scalatest" %% "scalatest" % "2.1.6" % "test"
     )
   )
@@ -203,7 +203,7 @@ lazy val akkademaid_scala_5 = (project in file("chapter05/akkademaid-scala-5"))
 //第六章节
 lazy val chapter06 = (project in file("chapter06"))
   .settings(commonSettings, name := "chapter06")
-  .aggregate(aakkademaid_client_java_6, aakkademaid_client_scala_6)
+  .aggregate(aakkademaid_client_java_6, aakkademaid_client_scala_6,aakkademaid_java_6,aakkademaid_scala_6)
 
 lazy val aakkademaid_client_java_6 = (project in file("chapter06/aakkademaid-client-java-6"))
   .settings(
@@ -234,7 +234,9 @@ lazy val aakkademaid_java_6 = (project in file("chapter06/aakkademaid-java-6"))
     dependencies,
     libraryDependencies ++= Seq(
       "com.syncthemall" % "boilerpipe" % "1.2.2",
-      "com.jason-goodwin" % "better-monads" % "0.2.0"
+      "com.jason-goodwin" % "better-monads" % "0.2.0",
+      "com.typesafe.akka" %% "akka-cluster" % "2.3.6",
+      "com.typesafe.akka" %% "akka-contrib" % "2.3.6"
     )
   )
 lazy val aakkademaid_scala_6 = (project in file("chapter06/aakkademaid-scala-6"))
@@ -243,7 +245,10 @@ lazy val aakkademaid_scala_6 = (project in file("chapter06/aakkademaid-scala-6")
     name := "aakkademaid-scala-6",
     dependencies,
     libraryDependencies ++= Seq(
-      "com.syncthemall" % "boilerpipe" % "1.2.2"
+      "com.syncthemall" % "boilerpipe" % "1.2.2",
+      "com.jason-goodwin" % "better-monads" % "0.2.0",
+      "com.typesafe.akka" %% "akka-cluster" % "2.3.6",
+      "com.typesafe.akka" %% "akka-contrib" % "2.3.6"
     )
   )
 
@@ -268,7 +273,47 @@ lazy val mailbox_demo_scala = (project in file("chapter07/mailbox-demo-scala"))
 //第八章节
 lazy val chapter08 = (project in file("chapter08"))
   .settings(commonSettings, name := "chapter08")
+  .aggregate(java_akka_chat, scala_akka_chat)
 
+lazy val java_akka_chat = (project in file("chapter08/java-akka-chat"))
+  .settings(
+    commonSettings,
+    name := "java-akka-chat",
+    dependencies
+  )
+lazy val scala_akka_chat = (project in file("chapter08/scala-akka-chat"))
+  .settings(
+    commonSettings,
+    name := "scala-akka-chat",
+    dependencies
+  )
+
+//第九章节
+lazy val chapter09 = (project in file("chapter09"))
+  .settings(commonSettings, name := "chapter09")
+
+lazy val akka_agent = (project in file("chapter09/akka-agent"))
+  .settings(
+    commonSettings,
+    name := "akka-agent",
+    dependencies
+  )
+lazy val akka_event_bus = (project in file("chapter09/akka-event-bus"))
+  .settings(
+    commonSettings,
+    name := "akka-event-bus",
+    dependencies
+  )
+lazy val akka_logging = (project in file("chapter09/akka-logging"))
+  .settings(
+    commonSettings,
+    name := "akka-logging",
+    dependencies,
+    libraryDependencies ++= Seq(
+      "ch.qos.logback" % "logback-classic" % "1.0.0" % "runtime",
+      "com.typesafe.akka" %% "akka-slf4j" % "2.3.11"
+    )
+  )
 
 javacOptions ++= Seq("-encoding", "UTF-8")
 javaOptions in run += "-Xmx1G"

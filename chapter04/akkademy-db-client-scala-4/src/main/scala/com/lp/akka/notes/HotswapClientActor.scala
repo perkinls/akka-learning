@@ -1,7 +1,7 @@
 package com.lp.akka.notes
 
 import akka.actor.{Actor, Stash}
-import com.akkademy.messages.{Connected, Request}
+import com.lp.akka.notes.messages.{Connected, Request}
 
 /**
  * Use mailbox with stash-capacity

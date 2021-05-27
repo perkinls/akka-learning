@@ -1,4 +1,4 @@
-package com.akkademy;
+package com.lp.akka.notes;
 
 import com.lp.akka.notes.JClient;
 import org.junit.Test;

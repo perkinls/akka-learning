@@ -1,6 +1,6 @@
 package com.lp.akka.notes
 
-import akka.actor.Actor
+import akka.actor.{Actor, UntypedActor}
 import akka.event.Logging
 
 import scala.collection.mutable.HashMap

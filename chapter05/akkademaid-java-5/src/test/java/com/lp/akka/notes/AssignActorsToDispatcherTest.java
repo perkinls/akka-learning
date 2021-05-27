@@ -1,4 +1,4 @@
-package com.akkademy;
+package com.lp.akka.notes;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
