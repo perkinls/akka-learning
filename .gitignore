@@ -1,49 +1,132 @@
-# maven ignore
+## .gitignore for Grails 1.2 and 1.3
+
+# .gitignore for maven
 target/
-*.jar
-!.mvn/wrapper/*
-*.war
-*.zip
-*.tar
-*.tar.gz
+*.releaseBackup
 
-# eclipse ignore
-.settings/
-.project
-.classpath
+# web application files
+#/web-app/WEB-INF
 
+# IDE support files
+/.classpath
+/.launch
+/.project
+/.settings
+/*.launch
+/*.tmproj
+/ivy*
+/eclipse
 
-# temp ignore
+# default HSQL database files for production mode
+/prodDb.*
+
+# general HSQL database files
+*Db.properties
+*Db.script
+
+# logs
+/stacktrace.log
+/test/reports
+/logs
 *.log
-*.cache
-*.diff
-*.patch
+*.log.*
+
+# project release file
+/*.war
+
+# plugin release file
+/*.zip
+/*.zip.sha1
+
+# older plugin install locations
+/plugins
+/web-app/plugins
+/web-app/WEB-INF/classes
+
+# "temporary" build files
+target/
+out/
+build/
+
+# other
+*.iws
+
+#.gitignore for java
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+## .gitignore for eclipse
+
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
 *.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
 
-# system ignore
-.DS_Store
-Thumbs.db
-*.orig
+# External tool builders
+.externalToolBuilders/
 
-# idea ignore
-.idea/
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+## .gitignore for intellij
+
+*.iml
 *.ipr
 *.iws
-.mymetadata
-.checkstyle
-.classpath
-.project
-.class
-.war
-.zip
-.rar
-*.iml
-.settings/*
-/indexes/*
-/target/*
-/src/main/webapp/WEB-INF/classes/*
-/src/main/webapp/userfiles/*
-/target/
-# *.properties
-# pom.xml
-# mybaties-*.xml
+.idea/
+
+## .gitignore for linux
+.*
+!.gitignore
+*~
+
+## .gitignore for windows
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## .gitignore for mac os x
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+## hack for graddle wrapper
+!wrapper/*.jar
+!**/wrapper/*.jar
