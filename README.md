@@ -4,7 +4,7 @@
 
 
 
-[**第1章 初识 Actor：Akka 工具集以及 Actor 模型的介绍**](./chapter01)
+[**第1章 初识 Actor：Akka 工具集以及 Actor 模型的介绍**](chapter01-2)
 
 [**第2章 Actor与并发：响应式编程，Actor与Future的使用**](./chapter02)
 

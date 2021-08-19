@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/akka-learning.iml" filepath="$PROJECT_DIR$/akka-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter01-2/chapter01-2.iml" filepath="$PROJECT_DIR$/chapter01-2/chapter01-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter03-5/chapter03-5.iml" filepath="$PROJECT_DIR$/chapter03-5/chapter03-5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter06/chapter06.iml" filepath="$PROJECT_DIR$/chapter06/chapter06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter07/chapter07.iml" filepath="$PROJECT_DIR$/chapter07/chapter07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter08/chapter08.iml" filepath="$PROJECT_DIR$/chapter08/chapter08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter09/chapter09.iml" filepath="$PROJECT_DIR$/chapter09/chapter09.iml" />
+    </modules>
+  </component>
+</project>
