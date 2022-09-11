@@ -38,3 +38,4 @@ public class ActorDemo extends UntypedActor {
         actorRef.tell("Hello Akka", ActorRef.noSender());
     }
 }
+

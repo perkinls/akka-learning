@@ -12,6 +12,7 @@ import com.typesafe.config.ConfigFactory;
  * @title PinnedDispatcher 使用
  */
 public class ActorDispatcherPinnedDemo extends UntypedActor {
+
     @Override
     public void onReceive(Object message) throws Exception {
         System.out.println(getSelf() + "---->" + message + " " + Thread.currentThread().getName());
@@ -24,12 +25,12 @@ public class ActorDispatcherPinnedDemo extends UntypedActor {
         ActorSystem system = ActorSystem.create("sys", pinnedConfig);
 
         for (int i = 0; i < 20; i++) {
-            /**
+            /*
              * pinned单独维护线程池,其他情况下Actor共享线程池(顿挫感)
              */
             ActorRef ref = system.actorOf(Props.create(ActorDispatcherPinnedDemo.class)
-                    .withDispatcher("my-pinned-dispatcher"),
-                    //.withDispatcher("my-forkjoin-dispatcher"),
+//                    .withDispatcher("my-pinned-dispatcher"),
+                    .withDispatcher("my-forkjoin-dispatcher"),
                     "actorDemo" + i);
             ref.tell("Hello pinned", ActorRef.noSender());
         }

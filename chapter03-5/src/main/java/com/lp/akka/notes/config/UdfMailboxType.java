@@ -16,6 +16,7 @@ import scala.Option;
  * </p>
  */
 public class UdfMailboxType implements MailboxType, ProducesMessageQueue<UdfMessageQueue> {
+    // 反射加载
     public UdfMailboxType(ActorSystem.Settings settings, Config config) {
 
     }

@@ -29,8 +29,9 @@ public class SupervisorActor extends UntypedActor {
     @Override
     public SupervisorStrategy supervisorStrategy() {
 
-        /**
+        /*
          * 自定义Actor One-For-One监督策略
+         * 在一分钟内重启3次失败将停止
          */
         return new OneForOneStrategy(3, Duration.create("1 minute"), new Function<Throwable, SupervisorStrategy.Directive>() {
             @Override
@@ -77,7 +78,6 @@ public class SupervisorActor extends UntypedActor {
 //        workerRef.tell("get value", ActorRef.noSender());
     }
 }
-
 class WorkerActor2 extends UntypedActor {
     private int stateCount = 1;
 

@@ -23,7 +23,7 @@ public class AskActorDemo extends UntypedActor {
 
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create("sys");
-        ActorRef ask_ar = system.actorOf(Props.create(AskActorDemo.class), "ackActorDemo");
+        ActorRef ask_ar = system.actorOf(Props.create(AskActorDemo.class), "askActorDemo");
         Timeout timeout = new Timeout(Duration.create(2, "seconds"));
         Future<Object> f = Patterns.ask(ask_ar, "Akka Ask", timeout);
         System.out.println("ask ...");

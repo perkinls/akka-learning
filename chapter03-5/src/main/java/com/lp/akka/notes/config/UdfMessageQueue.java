@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class UdfMessageQueue implements MessageQueue {
     /**
      * 使用ConcurrentLinkedQueue作为邮箱队列
+     *
      */
     private Queue<Envelope> queue = new ConcurrentLinkedQueue<Envelope>();
 
